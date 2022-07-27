@@ -56,6 +56,7 @@ p {
 }
 
 .col-xs-offset-2 {
+  width: 100%;
   margin-left: 0;
   display: flex;
   flex-direction: column;
@@ -73,6 +74,9 @@ p {
   height:35px;
 }
 
+.btn-info:hover:after{
+  background-color: #f0c44d;
+}
 /*card*/
 .card {
   height: auto;

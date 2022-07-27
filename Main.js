@@ -1,21 +1,20 @@
 ﻿
-var myLatLng = { lat: 48.85, lng: 2.35 };
-var mapOptions = {
-    mapId: "28f08bb4a23eb650",
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-};
-var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 function initMap() {
   
-    let map = new google.maps.Map(document.getElementById("map"), {
+    var map = new google.maps.Map(document.getElementById('map'), {
         mapId: "28f08bb4a23eb650",
         center: { lat: 48.85, lng: 2.35 },
-        zoom:8,
+        zoom:12,
         minZoom: 2,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 }
 window.initMap = initMap;
+
+var map = new google.maps.Map(document.getElementById('googleMap'));
+var myLatLng = { lat: 48.85, lng: 2.35 };
+
+
 
 //create a DirectionsService object to use the route method and get a result for our request
 var directionsService = new google.maps.DirectionsService();
