@@ -1,6 +1,21 @@
 ﻿
-//create map
+var myLatLng = { lat: 48.85, lng: 2.35 };
+var mapOptions = {
+    mapId: "28f08bb4a23eb650",
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+};
 var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+function initMap() {
+  
+    let map = new google.maps.Map(document.getElementById("map"), {
+        mapId: "28f08bb4a23eb650",
+        center: { lat: 48.85, lng: 2.35 },
+        zoom:8,
+        minZoom: 2,
+    });
+}
+window.initMap = initMap;
 
 //create a DirectionsService object to use the route method and get a result for our request
 var directionsService = new google.maps.DirectionsService();
@@ -28,14 +43,18 @@ function calcRoute() {
 
             //Get distance and time
             const output = document.querySelector('#output');
-            output.innerHTML = "<div class='alert-info'>From: " + document.getElementById("from").value + ".<br />To: " + document.getElementById("to").value + ".<br /> Driving distance <i class='fas fa-road'></i> : " + result.routes[0].legs[0].distance.text + ".<br />Duration <i class='fas fa-hourglass-start'></i> : " + result.routes[0].legs[0].duration.text + ".</div>";
+            output.innerHTML = "<div class='alert-info'>From: " 
+            + document.getElementById("from").value + ".<br />To: " 
+            + document.getElementById("to").value + ".<br /> Driving distance <i class='fas fa-road'></i> : " 
+            + result.routes[0].legs[0].distance.text + ".<br />Duration <i class='fas fa-hourglass-start'></i> : " 
+            + result.routes[0].legs[0].duration.text + ".</div>";
 
             //display route
             directionsDisplay.setDirections(result);
         } else {
             //delete route from map
             directionsDisplay.setDirections({ routes: [] });
-            //center map in London
+            //center map in London?
             map.setCenter(myLatLng);
 
             //show error message

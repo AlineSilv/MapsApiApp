@@ -73,9 +73,6 @@ p {
   height:35px;
 }
 
-.btn-info:hover:after{
-  background-color: #f0c44d;
-}
 /*card*/
 .card {
   height: auto;

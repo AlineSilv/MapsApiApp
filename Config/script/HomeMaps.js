@@ -1,5 +1,4 @@
-
-function initMap() {
+/*function initMap() {
   
     let map = new google.maps.Map(document.getElementById("map"), {
         mapId: "28f08bb4a23eb650",
@@ -92,11 +91,12 @@ function initMap() {
              shouldFocus: false,
            });
          });
+       
 
 
 
 
 }
   
-  window.initMap = initMap;
+  window.initMap = initMap;*/
 
