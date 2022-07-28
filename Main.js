@@ -18,7 +18,7 @@ directionsDisplay.setMap(map);
 
 
 
-function calcRoute() {
+function Route() {
 
     var request = {
         origin: document.getElementById("from").value,
