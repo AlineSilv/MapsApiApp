@@ -1,20 +1,17 @@
-﻿
-function initMap() {
-  
-    var map = new google.maps.Map(document.getElementById('map'), {
-        mapId: "28f08bb4a23eb650",
-        center: { lat: 48.85, lng: 2.35 },
-        zoom:12,
-        minZoom: 2,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-}
-window.initMap = initMap;
+﻿//javascript.js
+//set map options
+var myLatLng = {  lat: 48.85, lng: 2.35 };
+var mapOptions = {
+    mapId: "28f08bb4a23eb650",
+    center: myLatLng,
+    minZoom: 2,
+    zoom: 12,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
 
-var map = new google.maps.Map(document.getElementById('googleMap'));
-var myLatLng = { lat: 48.85, lng: 2.35 };
+};
 
-
+//create map
+var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 
 //create a DirectionsService object to use the route method and get a result for our request
 var directionsService = new google.maps.DirectionsService();
@@ -26,9 +23,9 @@ var directionsDisplay = new google.maps.DirectionsRenderer();
 directionsDisplay.setMap(map);
 
 
-//define calcRoute function
+
 function calcRoute() {
-    //create request
+
     var request = {
         origin: document.getElementById("from").value,
         destination: document.getElementById("to").value,
@@ -36,27 +33,23 @@ function calcRoute() {
         unitSystem: google.maps.UnitSystem.IMPERIAL
     }
 
-    //pass the request to the route method
+
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
 
-            //Get distance and time
+           
             const output = document.querySelector('#output');
-            output.innerHTML = "<div class='alert-info'>From: " 
-            + document.getElementById("from").value + ".<br />To: " 
-            + document.getElementById("to").value + ".<br /> Driving distance <i class='fas fa-road'></i> : " 
-            + result.routes[0].legs[0].distance.text + ".<br />Duration <i class='fas fa-hourglass-start'></i> : " 
-            + result.routes[0].legs[0].duration.text + ".</div>";
+            output.innerHTML = "<div class='alert-info'>From: " + document.getElementById("from").value + ".<br />To: " + document.getElementById("to").value + ".<br /> Driving distance <i class='fas fa-road'></i> : " + result.routes[0].legs[0].distance.text + ".<br />Duration <i class='fas fa-hourglass-start'></i> : " + result.routes[0].legs[0].duration.text + ".</div>";
 
-            //display route
+            
             directionsDisplay.setDirections(result);
         } else {
-            //delete route from map
+            
             directionsDisplay.setDirections({ routes: [] });
-            //center map in London?
+            
             map.setCenter(myLatLng);
 
-            //show error message
+            
             output.innerHTML = "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>";
         }
     });
@@ -64,8 +57,6 @@ function calcRoute() {
 }
 
 
-
-//create autocomplete objects for all inputs
 var options = {
     types: ['(cities)']
 }
