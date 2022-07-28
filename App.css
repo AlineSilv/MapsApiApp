@@ -3,7 +3,9 @@ body {
   color: #dfad25;
   font-family: "Poppins", sans-serif;
 }
-
+#output{
+  font-family: 'Roboto Slab', serif;
+}
 p {
   margin: 0 0 50px;
 }
