@@ -35,8 +35,8 @@ function calcRoute() {
             const output = document.querySelector('#output');
             output.innerHTML = "<div class='alert-info'><strong>From</strong>: " 
             + document.getElementById("from").value + ".<br /><strong>To</strong>: "
-            + document.getElementById("to").value + ".<br /> <strong>Driving distance</strong> <i class='fas fa-road'></i> : " 
-            + result.routes[0].legs[0].distance.text + ".<br /><strong>Duration</strong> <i class='fas fa-hourglass-start'></i> : " 
+            + document.getElementById("to").value + ".<br /> <strong>Driving distance</strong>  : " 
+            + result.routes[0].legs[0].distance.text + ".<br /><strong>Duration</strong>  : " 
             + result.routes[0].legs[0].duration.text + ".</div>";
 
             
